@@ -39,3 +39,6 @@ jobs:
 
           print("All four HELIOS agent routing tests passed!")
           PY
+
+      - name: Run HELIOS unit tests
+        run: python -m unittest discover -s tests -v
