@@ -36,3 +36,63 @@ This repository will document development progress, working prototypes, technica
 ---
 
 **Created by Skynet-Tech | SkynetAI-Labs**
+
+## Running the Prototype
+
+H.E.L.I.O.S. currently includes a Python-based
+multi-agent task-routing prototype.
+
+### Requirements
+
+- Python 3.10 or newer
+- No external Python packages required
+
+### Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/SkynetAI-Labs/HELIOS.git
+cd HELIOS
+```
+
+Start H.E.L.I.O.S.:
+
+```bash
+python main.py
+```
+
+Enter a task, for example:
+
+```text
+Analyse Solana wallets
+```
+
+Expected output:
+
+```text
+Selected agent: CIPHER
+Specialisation: Crypto & Blockchain Intelligence
+Status: Task classified (execution not implemented)
+```
+
+Type `exit` to close the program.
+
+### Running Unit Tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+GitHub Actions also runs automated checks whenever
+changes are pushed to the main branch.
+
+### Current Limitations
+
+This is an early-stage prototype.
+
+- Task routing uses keyword matching.
+- Specialist AI agents are not yet executable.
+- No live blockchain trading is implemented.
+- Cloud and CRM integrations are planned.
+- Human approval will be required for consequential actions.
