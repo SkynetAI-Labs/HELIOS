@@ -1,0 +1,41 @@
+
+name: HELIOS Python Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check Python syntax
+        run: python -m compileall -q main.py router.py
+
+      - name: Test agent routing
+        run: |
+          python - <<'PY'
+          from router import route_task
+
+          assert route_task("Analyse Solana wallets") == "CIPHER"
+          assert route_task("Deploy Docker containers") == "OSCAR"
+          assert route_task("Find sales prospects") == "GTM"
+          assert route_task("Research cybersecurity") == "NOVA"
+
+          print("All four HELIOS agent routing tests passed!")
+          PY
